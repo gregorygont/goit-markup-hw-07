@@ -39,6 +39,12 @@ button {
   cursor: pointer;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -62,12 +68,18 @@ button {
 
 @media screen and (min-width: 768px) {
   .container {
+    max-width: 582px;
+  }
+  .container-advantage {
     max-width: 768px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .container {
+    max-width: 1158px;
+  }
+  .container-advantage {
     max-width: 1158px;
   }
 }
@@ -100,6 +112,18 @@ button {
 .container-header {
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container-header {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container-header {
+    max-width: 1158px;
+  }
 }
 
 /* Nav */
@@ -177,11 +201,17 @@ button {
     flex-wrap: wrap;
     gap: 4px;
   }
+  .address-list > .item:not(:last-child) {
+    margin-bottom: 12px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .address-list {
     gap: 40px;
+  }
+  .address-list > .item:not(:last-child) {
+    margin-bottom: 0px;
   }
 }
 
@@ -190,6 +220,23 @@ button {
   color: var(--color-main-text);
   transition: color var(--transition-duration-and-func);
 }
+
+@media screen and (min-width: 768px) {
+  .address-link {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .address-link {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+}
+
 .address-link:hover,
 .address-link:focus {
   color: var(--accent);
@@ -247,7 +294,7 @@ button {
 
   padding-left: 40px;
   padding-right: 40px;
-  padding-top: 40px;
+  padding-top: 80px;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -271,6 +318,10 @@ button {
   color: var(--color-secondary-text);
 }
 
+.color-active {
+  color: var(--accent);
+}
+
 .mob-link:hover,
 .mob-link:focus {
   color: var(--accent);
@@ -292,37 +343,41 @@ button {
   gap: 40px;
 }
 
-.mob-email-link,
-.mob-tel-link {
+.mob-email-link {
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2em;
   letter-spacing: 0.02em;
   color: var(--color-main-text);
-  transition: transform var(--transition-duration-and-func),
-    color var(--transition-duration-and-func),
-    font-weight var(--transition-duration-and-func),
-    font-size var(--transition-duration-and-func);
 }
 
-.mob-tel-link:hover,
-.mob-tel-link:focus,
-.mob-tel-link:active,
-.mob-email-link:hover,
-.mob-email-link:focus,
-.mob-email-link:active {
-  transform: scale(2.2 2.2);
-  color: var(--secondary-bg-color);
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.11em;
+.mob-tel-link {
+font-weight: 700;
+font-style: normal;
+font-size: 36px;
+line-height: 1.11;
+letter-spacing: 0.02em;
+text-transform: capitalize;
+color: var(--secondary-bg-color);
 }
 
 .mob-soc-list {
   display: flex;
-  gap: 56px;
 }
+
+@media screen and (max-width: 368px) {
+  .mob-soc-list {
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: 369px) {
+  .mob-soc-list {
+    gap: 56px;
+  }
+}
+
 
 .mob-soc-item {
   background-color: var(--secondary-bg-color);
@@ -425,6 +480,7 @@ button {
 }
 
 .hero-header {
+  margin-top: 0;
   margin-bottom: 72px;
   margin-left: auto;
   margin-right: auto;
@@ -486,10 +542,6 @@ button {
 
 .icons {
   display: none;
-}
-
-.advantages-list-item {
-  margin-left: 24px;
 }
 
 .advantages-list-item:not(:last-child) {
@@ -560,8 +612,6 @@ button {
   }
   .advantages-list-item {
     flex-basis: calc((100% - 72px) / 4);
-    display: flex;
-    flex-direction: column;
   }
   .subtitle-advantages {
     margin-top: 8px;
@@ -629,7 +679,8 @@ button {
   .team-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    row-gap: 64px;
+    column-gap: 24px;
     justify-content: center;
   }
 }
@@ -801,7 +852,6 @@ button {
   .footer-container {
     column-gap: 24px;
     justify-content: flex-start;
-    padding-left: 108px;
   }
 }
 
@@ -1010,6 +1060,14 @@ button {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+
+@media screen and (max-width: 407px) {
+  .modal {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 
 .backdrop.is-hidden {
   opacity: 0;
